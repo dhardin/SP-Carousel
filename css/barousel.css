@@ -279,7 +279,7 @@ thead td
 {
     position:absolute;
     display:none;
-
+    background-repeat: repeat-x;
 }
 
 .barousel_image img.default
