@@ -299,18 +299,30 @@ thead td
 
 .barousel_content
 {
-    position:absolute;
-    padding:15px 18px 0 18px;    
+    position:absolute;   
     z-index:50;
     color:#fff;
     width:247px;
     bottom:36px;
     right:10px;
+    border-radius: 5px;
+}
+.barousel_content .overlay{
+    background-color: #000;
+    zoom: 1;
+    filter:alpha(opacity=50);
+    opacity: 0.5;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
-.barousel_content div
+.barousel_content .content
 {
-    display:none;    
+    display:none; 
+    margin:15px 18px 0 18px;   
 }
 
 .barousel_content div.default
@@ -399,12 +411,12 @@ thead td
 
 .barousel_nav li.prev a:before
 {
-    content: ' \2190';
+    content: '\00a0\00a0\2190';
 }
 
 .barousel_nav li.next a:before
 {
-   content: ' \2192';
+   content: '\00a0\00a0\2192';
 }
 
 .barousel img.ajax_loader
