@@ -138,7 +138,7 @@ var carousel = (function () {
      populateCarousel = function (items) {
          var $imageContainer = jqueryMap.$imageContainer,
             $contentContainer =  jqueryMap.$contentContainer,
-            contentHtml = '<div><h4 class="header"></h4><span class="date"></span><p class="body"></p></div>',
+            contentHtml = '<div class="content"><h4 class="header"></h4><span class="date"></span><p class="body"></p></div>',
             i, $img, $content, $body, $header, imgSrc, imgAlt;
 
         if (items.length == 0) {
