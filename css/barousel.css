@@ -399,12 +399,12 @@ thead td
 
 .barousel_nav li.prev a:before
 {
-    content: ' \u2190';
+    content: ' \2190';
 }
 
 .barousel_nav li.next a:before
 {
-   content: ' \u2192';
+   content: ' \2192';
 }
 
 .barousel img.ajax_loader
