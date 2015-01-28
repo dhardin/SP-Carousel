@@ -158,6 +158,7 @@ www.juliendecaudin.com
 
             //start the carousel
             if (settings.manualCarousel == 0) {
+            	 loadItem(settings, 0);
                 var loadItemCall = function () { loadItem(settings, 1); };
                 settings.timerCarousel = window.setTimeout(loadItemCall, settings.slideDuration);
             }

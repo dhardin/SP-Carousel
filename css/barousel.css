@@ -278,13 +278,14 @@ thead td
     left: 0;
     right: 0;
     background-size: cover;
+    background-repeat: repeat-x;
 }
 
 .barousel_image img
 {
     position:absolute;
     display:none;
-    background-repeat: repeat-x;
+    
 }
 
 .barousel_image img.current
