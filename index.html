@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carousel</title>
+    <link rel="stylesheet" href="css/barouisel.css"/>
+    <link rel="stylesheet" href="css/carousel.css"/>
+    <script type="text/javascript" src="js/carousel.js"></script>
+    <script type="text/javascript" src="jquery.barousel.min.js"></script>
+    <script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+</head>
+<body>
+    <div id="carousel"></div>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    	//initialize carousel and pass in configuration properties
+        carousel.initModule({
+            container: $('carousel'),
+            config: {
+            	listGuid: '',
+  				viewGuid: '',
+  				url: ''
+            }
+        });
+    });
+    </script>
+</body>
+</html>
