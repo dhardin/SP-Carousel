@@ -396,12 +396,12 @@ thead td
     background-color:#fff55b;
 }
 
-.barousel_nav li.prev a
+.barousel_nav li.prev a:before
 {
     content: '\u2190';
 }
 
-.barousel_nav li.next a
+.barousel_nav li.next a:before
 {
    content: '\u2192';
 }
