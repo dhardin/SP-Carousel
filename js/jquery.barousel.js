@@ -180,7 +180,7 @@ www.juliendecaudin.com
         } else {
             currentImage = $(settings.imageList[settings.currentIndex]);
         }
-        currentImage.parent().css({'background-image', 'url('+currentImage.attr('src')+')'})
+        currentImage.parent().css({'background-image': 'url('+currentImage.attr('src')+')'});
         var nextImage = $(settings.imageList[index]);
 
         /* DEBUG */

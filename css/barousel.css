@@ -273,6 +273,11 @@ thead td
 {
     position:absolute;
     z-index:10;
+    top:0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    background-size: cover;
 }
 
 .barousel_image img
@@ -280,11 +285,6 @@ thead td
     position:absolute;
     display:none;
     background-repeat: repeat-x;
-}
-
-.barousel_image img.default
-{    
-    display:block;
 }
 
 .barousel_image img.current
