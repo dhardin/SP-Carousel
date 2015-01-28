@@ -16,7 +16,7 @@ var carousel = (function () {
     configMap = {
         main_html: String()
         + '<div class="barousel_image"></div>'
-        + '<div class="barousel_content"><div class="overlay"></div><div class="default"><h4>Loading...</h4><p></p></div></div>'
+        + '<div class="barousel_content"><div class="default"><h4>Loading...</h4><p></p></div></div>'
         + '<div class="barousel_nav"></div>',
         settable_map: {
             fake: true,

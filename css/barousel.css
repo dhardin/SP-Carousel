@@ -306,18 +306,9 @@ thead td
     bottom:36px;
     right:10px;
     border-radius: 5px;
+    background-color: rgba(0,0,0,0.5);
 }
-.barousel_content .overlay{
-    background-color: #000;
-    zoom: 1;
-    filter:alpha(opacity=50);
-    opacity: 0.5;
-    position: relative;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
+
 
 .barousel_content .content
 {
