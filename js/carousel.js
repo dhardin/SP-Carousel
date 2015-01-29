@@ -74,10 +74,16 @@ var carousel = (function () {
                         <viewName>" + configMap.viewGuid + "</viewName> \
                     </GetListItems> \
                 </soapenv:Body> \
-            </soapenv:Envelope>";
+            </soapenv:Envelope>",
+            url = configMap.url;
+ //data calls assume url ends with '/'
+        //fix url if it dosn't end with '/'
+        if (!endsWith(url, '/')) {
+            url = url + '/';
+        }
 
         $.ajax({
-            url: configMap.url,
+            url: url + "_vti_bin/lists.asmx",
             type: "POST",
             dataType: "xml",
             data: soapEnv,
@@ -88,17 +94,27 @@ var carousel = (function () {
     }
     // End DOM method /getData/
 
-    function printError(XMLHttpRequest, textStatus, errorThrown) {
-        console.log("There was an error: " + errorThrown + " " + textStatus);
-        console.log(XMLHttpRequest.responseText);
+ printError = function(XMLHttpRequest, textStatus, errorThrown) {
+        if(XMLHttpRequest && textStatus && errorThrown){
+            console.log("There was an error: " + errorThrown + " " + textStatus);
+            console.log(XMLHttpRequest.responseText);
+        }
         $contentContainer = jqueryMap.$contentContainer;
         $contentContainer.empty();
         $contentContainer.html(templateMap.error);
     }
 
+     // Begin utility method /endsWith/
+   
+endsWith = function(string, suffix){
+    return string.indexOf(suffix, string.length - suffix.length) !== -1;
+};
+   // End utility method /endsWith/
+
 
     processResult = function (xData, status) {
-        if (status == "error") {
+        if (status != "success") {
+            printError();
             return false;
         }
         var items = [],
