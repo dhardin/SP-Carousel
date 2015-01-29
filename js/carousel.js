@@ -31,7 +31,7 @@ var carousel = (function () {
     },
     templateMap = {
         no_content: '<div class="default"><h4>Sorry, no content :(</h4><p>To upload content, please visit the announcement list and upload a new item.</p></div></div>',
-        error: '<div class="default"><h4>Error loading content</h4><p></p></div></div>'
+        error: '<div class="default"><h4>Error loading content :(</h4><p></p></div></div>'
     },
     stateMap = {
         $container: undefined
@@ -93,12 +93,7 @@ var carousel = (function () {
         console.log(XMLHttpRequest.responseText);
         $contentContainer = jqueryMap.$contentContainer;
         $contentContainer.empty();
-        $(templateMap.error).appendTo($contentContainer);
-        //initiate barousel plugin
-        stateMap.$container.barousel({
-            navType: 2,
-            fadeIn: 0
-        });
+        $contentContainer.html(templateMap.error);
     }
 
 
