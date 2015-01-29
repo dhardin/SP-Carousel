@@ -127,9 +127,10 @@ endsWith = function(string, suffix){
                 expires: "ows_Expires",
                 date: "ows_Date"
             };
-       
+           var responseProperty = (xData.responseText ? 'responseText' : 'responseXML'),
+                 results = $(xData[responseProperty]).find('z\\:row');
 
-        $(xData.responseXML).find("z\\:row").each(function () {
+       results.each(function () {
             var $this = $(this),
                 key,
                 obj = {};
