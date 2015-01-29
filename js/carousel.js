@@ -91,6 +91,7 @@ var carousel = (function () {
     function printError(XMLHttpRequest, textStatus, errorThrown) {
         console.log("There was an error: " + errorThrown + " " + textStatus);
         console.log(XMLHttpRequest.responseText);
+        $contentContainer = jqueryMap.$contentContainer;
         $contentContainer.empty();
         $(templateMap.error).appendTo($contentContainer);
         //initiate barousel plugin
