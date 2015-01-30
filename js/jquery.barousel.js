@@ -195,17 +195,18 @@ www.juliendecaudin.com
 
         //fade-in effect
         if (settings.fadeIn == 0) {
-            nextImage.show();
-            currentImage.hide();
+            //nextImage.show();
+           // currentImage.hide();
             loadModuleContent(settings, index);
         } else {
             settings.navFreeze = 1;
             $(settings.contentList).hide();
-            nextImage.fadeIn(settings.fadeInSpeed, function () {
+           /* nextImage.fadeIn(settings.fadeInSpeed, function () {
                 currentImage.hide();
                 currentImage.removeClass('previous');
                 settings.navFreeze = 0;
-            });
+            });*/
+currentImage.removeClass('previous');
             loadModuleContent(settings, index);
         }
 
