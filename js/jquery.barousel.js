@@ -43,7 +43,7 @@ www.juliendecaudin.com
         }
 
         if (settings.totalItem == 1) {
-            //$(settings.navWrapper).hide();            
+             loadItem(settings, 0);       
         } else {
             //set the index of each image  
             settings.imageList.each(function (n) { this.index = n; });
@@ -163,7 +163,7 @@ www.juliendecaudin.com
                 settings.timerCarousel = window.setTimeout(loadItemCall, settings.slideDuration);
             }
         }
-
+        
         return this;
     };
 
