@@ -39,7 +39,10 @@ var carousel = (function () {
     attr_map={
         ows_image: 'image',
         ows_title: 'title',
-        ows_body: 'body'
+        ows_body: 'body',
+        ows_date: 'date',
+        ows_linkSrc: 'linkSrc',
+        ows_linkText: 'linkText'
     },
     jqueryMap = {},
      setJqueryMap, getData, configModule,setConfigMap, initModule, printError, processResult, populateCarousel, stripHtml;
@@ -150,7 +153,7 @@ endsWith = function(string, suffix){
          var $imageContainer = jqueryMap.$imageContainer,
             $contentContainer =  jqueryMap.$contentContainer,
             contentHtml = '<div class="content"><h4 class="header"></h4><span class="date"></span><p class="body"></p></div>',
-            i, $img, $content, $body, $header, imgSrc, imgAlt;
+            i, $img, $content, $body, $header, imgSrc, imgAlt, linkSrc;
 
         if (items.length == 0) {
             $contentContainer.empty();
@@ -176,11 +179,11 @@ endsWith = function(string, suffix){
              $body = $content.find('.body');
 
              $header.text(items[i].title);
-             $date.text(items[i].date.toString().substring(0, 10));
-             var $tempBody = $(items[i].body);
+             $date.text(items[i].date ? items[i].date.toString().substring(0, 10) : '');
+             var $tempBody = $(items[i].body || '');
              $body.html($tempBody.html());
 
-             $('<br/><a href="' + items[i].linkSrc.split(',')[0] + '" target="_top" >' + items[i].linkText + '</a>').appendTo($body);
+             $('<br/><a href="' + (items[i].linkSrc ? items[i].linkSrc.split(',')[0] : '') + '" target="_top" >' + (items[i].linkText || '') + '</a>').appendTo($body);
 
              $content.appendTo($contentContainer);
 
