@@ -36,6 +36,11 @@ var carousel = (function () {
     stateMap = {
         $container: undefined
     },
+    attr_map={
+        ows_image: 'image',
+        ows_title: 'title',
+        ows_body: 'body'
+    },
     jqueryMap = {},
      setJqueryMap, getData, configModule,setConfigMap, initModule, printError, processResult, populateCarousel, stripHtml;
     //----------------- END MODULE SCOPE VARIABLES ---------------
@@ -130,7 +135,7 @@ endsWith = function(string, suffix){
            var responseProperty = (xData.responseText ? 'responseText' : 'responseXML'),
                  results = $(xData[responseProperty]).find('z\\:row');
 
-        items = processData(results);
+        items = processData(results, attr_map);
 
         populateCarousel(items, jsonCols);
         //initiate barousel plugin
@@ -156,8 +161,8 @@ endsWith = function(string, suffix){
         $contentContainer.empty();
 
          for (i = 0; i < items.length; i++) {
-             imgSrc = items[i].imageSrc.split(',')[0];
-             imgAlt = items[i].imageSrc.split(',')[1];
+             imgSrc = items[i].image.split(',')[0];
+             imgAlt = items[i].image.split(',')[1];
              $img = $('<img>');
              $img.attr('src', imgSrc);
              $img.attr('alt', imgAlt);
@@ -188,10 +193,10 @@ endsWith = function(string, suffix){
      };
 
 // Begin Utility Method /processData/
-     processData= function(results) {
+     processData= function(results, attr_map) {
         var data = [],
             attrObj = {},
-            i, j, attribute;
+            i, j, attribute, attribute_name;
 
 
         //repackage data into an array which each index
@@ -203,7 +208,10 @@ endsWith = function(string, suffix){
             }
             for (j = 0; j < results[i].attributes.length; j++){
                 attribute = results[i].attributes[j];
-                attrObj[attribute.name.toLowerCase()] = attribute.value.replace('\\', '/');
+                if(attr_map){
+                    attribute_name = attr_map[attribute.name.toLowerCase()] || attribute.name.toLowerCase();
+                }
+                attrObj[attribute_name] = attribute.value.replace('\\', '/');
             }
           
             data.push(attrObj);
