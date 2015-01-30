@@ -277,7 +277,7 @@ thead td
     bottom:23px;
     left: 0;
     right: 0;
-    background-size: contain;
+    background-size: auto;
     background-repeat: repeat-x;
 }
 
