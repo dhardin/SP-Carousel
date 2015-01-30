@@ -117,7 +117,7 @@ endsWith = function(string, suffix){
             printError();
             return false;
         }
-        var items = [],
+        var items,
             jsonCols = {
                 title: "ows_Title",
                 body: "ows_Body",
@@ -130,15 +130,8 @@ endsWith = function(string, suffix){
            var responseProperty = (xData.responseText ? 'responseText' : 'responseXML'),
                  results = $(xData[responseProperty]).find('z\\:row');
 
-       results.each(function () {
-            var $this = $(this),
-                key,
-                obj = {};
-            for (key in jsonCols) {
-                obj[key] = typeof $this.attr(jsonCols[key]) !== "undefined" ? $this.attr(jsonCols[key]) : "";
-            }
-            items.push(obj);
-        });
+        items = processData(results);
+
         populateCarousel(items, jsonCols);
         //initiate barousel plugin
         stateMap.$container.barousel({
@@ -194,6 +187,32 @@ endsWith = function(string, suffix){
 
      };
 
+// Begin Utility Method /processData/
+     processData= function(results) {
+        var data = [],
+            attrObj = {},
+            i, j, attribute;
+
+
+        //repackage data into an array which each index
+        //is an object with key value pairs
+        for (i = 0; i < results.length; i++){
+            attrObj = {};
+            if(!results[i].attributes){
+                continue;
+            }
+            for (j = 0; j < results[i].attributes.length; j++){
+                attribute = results[i].attributes[j];
+                attrObj[attribute.name.toLowerCase()] = attribute.value.replace('\\', '/');
+            }
+          
+            data.push(attrObj);
+          
+        }
+
+        return data;
+    };
+   // End Utility Method /processData/
     
 
     // Begin Public method /setConfigMap/
