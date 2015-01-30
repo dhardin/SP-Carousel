@@ -163,7 +163,7 @@ www.juliendecaudin.com
                 settings.timerCarousel = window.setTimeout(loadItemCall, settings.slideDuration);
             }
         }
-        
+
         return this;
     };
 
@@ -249,8 +249,8 @@ www.juliendecaudin.com
 
     var loadModuleContentAction = function (settings, index) {
         //display the loaded content                
-        $(settings.contentList).hide();
-        $(settings.contentList[index]).show();
+       // $(settings.contentList).hide();
+       // $(settings.contentList[index]).show();
 
         if (settings.contentLinksWrapper != null) {
             $(settings.contentLinksList).removeClass('current');
