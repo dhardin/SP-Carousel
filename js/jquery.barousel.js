@@ -181,9 +181,9 @@ www.juliendecaudin.com
         } else {
             currentImage = $(settings.imageList[settings.currentIndex]);
         }
-        currentImage.parent().css({'background-image': 'url('+currentImage.attr('src')+')'});
+        
         var nextImage = $(settings.imageList[index]);
-
+        nextImage.parent().css({'background-image': 'url('+nextImage.attr('src')+')'});
         /* DEBUG */
         if (settings.debug == 1) {
             console.log('[Barousel loadItem] currentImage:' + currentImage.attr('src'));
