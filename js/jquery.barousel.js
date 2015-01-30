@@ -206,7 +206,7 @@ www.juliendecaudin.com
                 currentImage.removeClass('previous');
                 settings.navFreeze = 0;
             });*/
-currentImage.removeClass('previous');
+            currentImage.removeClass('previous');
             loadModuleContent(settings, index);
         }
 
@@ -250,8 +250,8 @@ currentImage.removeClass('previous');
 
     var loadModuleContentAction = function (settings, index) {
         //display the loaded content                
-       // $(settings.contentList).hide();
-       // $(settings.contentList[index]).show();
+       $(settings.contentList).hide();
+       $(settings.contentList[index]).show();
 
         if (settings.contentLinksWrapper != null) {
             $(settings.contentLinksList).removeClass('current');
