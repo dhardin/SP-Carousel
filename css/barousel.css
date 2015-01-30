@@ -274,10 +274,10 @@ thead td
     position:absolute;
     z-index:10;
     top:0;
-    bottom:0;
+    bottom:23px;
     left: 0;
     right: 0;
-    background-size: cover;
+    background-size: contain;
     background-repeat: repeat-x;
 }
 
