@@ -164,8 +164,8 @@ endsWith = function(string, suffix){
         $contentContainer.empty();
 
          for (i = 0; i < items.length; i++) {
-             imgSrc = items[i].image.split(',')[0];
-             imgAlt = items[i].image.split(',')[1];
+             imgSrc = (items[i].image ? items[i].image.split(',')[0] : '');
+             imgAlt = (items[i].image ? items[i].image.split(',')[1] : '');
              $img = $('<img>');
              $img.attr('src', imgSrc);
              $img.attr('alt', imgAlt);
