@@ -304,6 +304,7 @@ thead td
     z-index:50;
     color:#fff;
     min-width:247px;
+    max-width: 50%;
     bottom:36px;
     right:10px;
     border-radius: 5px;

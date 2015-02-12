@@ -41,8 +41,8 @@ var carousel = (function () {
         ows_title: 'title',
         ows_body: 'body',
         ows_date: 'date',
-        ows_linkSrc: 'linkSrc',
-        ows_linkText: 'linkText'
+        ows_linksrc: 'linkSrc',
+        ows_linktext: 'linkText'
     },
     jqueryMap = {},
      setJqueryMap, getData, configModule,setConfigMap, initModule, printError, processResult, populateCarousel, stripHtml;
@@ -126,21 +126,12 @@ endsWith = function(string, suffix){
             return false;
         }
         var items,
-            jsonCols = {
-                title: "ows_Title",
-                body: "ows_Body",
-                imageSrc: "ows_Image",
-                linkSrc: "ows_Link",
-                linkText: "ows_LinkText",
-                expires: "ows_Expires",
-                date: "ows_Date"
-            };
-           var responseProperty = (xData.responseText ? 'responseText' : 'responseXML'),
+            responseProperty = (xData.responseText ? 'responseText' : 'responseXML'),
                  results = $(xData[responseProperty]).find('z\\:row');
 
         items = processData(results, attr_map);
 
-        populateCarousel(items, jsonCols);
+        populateCarousel(items);
         //initiate barousel plugin
         stateMap.$container.barousel({
             navType: 2,
@@ -180,8 +171,8 @@ endsWith = function(string, suffix){
 
              $header.text(items[i].title);
              $date.text(items[i].date ? items[i].date.toString().substring(0, 10) : '');
-             var $tempBody = $(items[i].body || '');
-             $body.html($tempBody.html());
+             var tempBody = items[i].body || '';
+             $body.html(tempBody);
 
              $('<br/><a href="' + (items[i].linkSrc ? items[i].linkSrc.split(',')[0] : '') + '" target="_top" >' + (items[i].linkText || '') + '</a>').appendTo($body);
 
