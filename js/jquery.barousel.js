@@ -27,7 +27,7 @@ www.juliendecaudin.com
         settings.contentLinksWrapper = $(settings.contentLinksWrapper);
         settings.navWrapper = $(this).find(settings.navWrapper);
         settings.imageList = settings.imageWrapper.find('img').not('[class*=intro]'); //list of the items' background image (intro image is ignored)
-        settings.contentList = settings.contentWrapper.find('div').not('[class*=intro]'); //list of the items' content (intro content is ignored)
+        settings.contentList = settings.contentWrapper.find('.content'); //list of the items' content (intro content is ignored)
         settings.contentLinksList = settings.contentLinksWrapper.find('a'); //list of the items' content links (optional)
         settings.imageIntro = settings.imageWrapper.find('img[class*=intro]');
         settings.contentIntro = settings.contentWrapper.find('div[class*=intro]');
