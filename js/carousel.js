@@ -19,12 +19,14 @@ var carousel = (function() {
                 fake: true,
                 listGuid: true,
                 viewGuid: true,
-                url: true
+                url: true,
+                slide_duration: true
             },
             fake: false,
             listGuid: "",
             viewGuid: "",
-            url: ""
+            url: "",
+            slide_duration: 8000
         },
         templateMap = {
             no_content: '<div class="default"><h4>Sorry, no content :(</h4><p>To upload content, please visit the announcement list and upload a new item.</p></div></div>',
@@ -36,6 +38,7 @@ var carousel = (function() {
         attr_map = {
             ows_image: 'image',
             ows_title: 'title',
+            ows_rich_title: 'rich_title',
             ows_body: 'body',
             ows_date: 'date',
             ows_linksrc: 'linkSrc',
@@ -132,7 +135,7 @@ var carousel = (function() {
         stateMap.$container.barousel({
             navType: 2,
             fadeIn: 0,
-            slideDuration: 8000 //miliseconds
+            slideDuration: config_map.slide_duration //miliseconds
         });
     };
 
@@ -165,7 +168,7 @@ var carousel = (function() {
             $date = $content.find('.date');
             $body = $content.find('.body');
 
-            $header.text(items[i].title);
+            $header.html((items[i].rich_title.length > 0 ? items[i].rich_title : items[i].title);
             $date.text(items[i].date ? items[i].date.toString().substring(0, 10) : '');
             var tempBody = items[i].body || '';
             $body.html(tempBody);
@@ -295,8 +298,6 @@ var carousel = (function() {
         //add required class for barousel plugin
         $container.addClass('barousel');
         getData();
-
-
     };
 
 
