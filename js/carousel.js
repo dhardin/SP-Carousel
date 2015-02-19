@@ -135,7 +135,7 @@ var carousel = (function() {
         stateMap.$container.barousel({
             navType: 2,
             fadeIn: 0,
-            slideDuration: config_map.slide_duration //miliseconds
+            slideDuration: configMap.slide_duration //miliseconds
         });
     };
 
