@@ -168,7 +168,7 @@ var carousel = (function() {
             $date = $content.find('.date');
             $body = $content.find('.body');
 
-            $header.html((items[i].rich_title.length > 0 ? items[i].rich_title : items[i].title);
+            $header.html(items[i].rich_title.length > 0 ? items[i].rich_title : items[i].title);
             $date.text(items[i].date ? items[i].date.toString().substring(0, 10) : '');
             var tempBody = items[i].body || '';
             $body.html(tempBody);
